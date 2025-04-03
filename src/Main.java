@@ -1,18 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 public class Main {
-    public static long calcularPotenciaRecursiva(int base, int exponente) {
-        if (exponente == 0) {
-            return 1;
-        } else if (exponente < 0) {
-            return 1 / calcularPotenciaRecursiva(base, -exponente);
-        } else if (exponente % 2 == 0) {
-            long temp = calcularPotenciaRecursiva(base, exponente / 2);
-            return temp * temp;
-        } else {
-            return base * calcularPotenciaRecursiva(base, exponente - 1);
-        }
-    }
     public static void main(String[] args) {
         int op;
         int op2;
@@ -29,7 +17,6 @@ public class Main {
 
         ArrayList<Integer> figuras = new ArrayList<>();
         ArrayList<Integer> figuras2 = new ArrayList<>();
-        ArrayList<String> operacionesPotencia = new ArrayList<>();
 
         Scanner leer=new Scanner (System.in);
 
@@ -134,18 +121,10 @@ public class Main {
                     }
                     break;
                 case 6:
-                    System.out.print("Ingrese la base: ");
-                    int basePotencia = leer.nextInt();
-                    System.out.print("Ingrese el exponente: ");
-                    int exponentePotencia = leer.nextInt();
-                    long resultadoPotencia = calcularPotenciaRecursiva(basePotencia, exponentePotencia);
-                    System.out.println(basePotencia + " elevado a la " + exponentePotencia + " es: " + resultadoPotencia);
-                    operacionesPotencia.add(basePotencia + "^" + exponentePotencia + " = " + resultadoPotencia);
-                case 7:
-                    System.out.println("Saliendo.....\n\n\n\n");
+                    System.out.println("Saliendo.....");
                     break;
                 default:
-                    System.out.print("opcion no valida, ingrese otra");
+                    System.out.println("Opcion invalida, ingrese de nuevo su opcion");
             }
 
         } while (op != 7);
@@ -161,10 +140,6 @@ public class Main {
             i++;
             System.out.println(i + " Figura");
             System.out.println("\t-Perimetro: " + p);
-        }
-        System.out.println("\nPotencias calculadas: ");
-        for (String operacion : operacionesPotencia) {
-            System.out.println("\t- " + operacion);
         }
     }
 }
